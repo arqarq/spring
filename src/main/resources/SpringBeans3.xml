@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="runBean2"
+          class="org.arqarq.spring.Run2">
+        <constructor-arg ref="helloWorld4"/>
+        <constructor-arg value="                         test"/>
+    </bean>
+    <bean id="helloWorld4"
+          class="org.arqarq.spring.HelloWorld2">
+        <property name="name">
+            <null/>
+        </property>
+    </bean>
+</beans>
