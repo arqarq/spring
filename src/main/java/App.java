@@ -26,7 +26,7 @@ public class App {
         final ClassPathXmlApplicationContext classPathXmlApplicationContext =
                 new ClassPathXmlApplicationContext("SpringBeans.xml");
 
-        final HelloWorld helloBean = classPathXmlApplicationContext.getBean("helloBean", HelloWorld.class);
+        final HelloWorld helloBean = (HelloWorld) classPathXmlApplicationContext.getBean("helloBean");
         helloBean.printHello();
         new App().start();
     }
