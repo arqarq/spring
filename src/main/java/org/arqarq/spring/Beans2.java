@@ -3,6 +3,7 @@ package org.arqarq.spring;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.Role;
 
 import javax.annotation.PostConstruct;
@@ -10,6 +11,7 @@ import javax.annotation.PreDestroy;
 
 @Configuration
 @Role(BeanDefinition.ROLE_INFRASTRUCTURE)
+@Import(Beans3.class)
 class Beans2 {
     @Bean(initMethod = "init", destroyMethod = "cleanup")
     public InitHelloWorld giveBean3() {

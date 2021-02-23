@@ -1,6 +1,5 @@
 package org.arqarq.spring;
 
-import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -16,7 +15,7 @@ public class App {
 
     App() {
         context.registerShutdownHook();
-        context.registerBean(Beans.class, beanDefinition -> beanDefinition.setRole(BeanDefinition.ROLE_INFRASTRUCTURE));
+        context.registerBean(Beans.class/*, beanDefinition -> beanDefinition.setRole(BeanDefinition.ROLE_INFRASTRUCTURE)*/);
         context.registerBean("Bean 1", HelloWorld.class, () -> {
             final HelloWorld helloWorld = new HelloWorld();
 
@@ -59,6 +58,7 @@ public class App {
         helloWorld.printHello();
         helloWorld = context.getBean("Bean 1", HelloWorld.class);
         helloWorld.printHello();
+        ((CustomEventPublisher) context.getBean("customEventPublisher")).publish();
         final Run run = new Run(context);
         context.stop();
         context.close();
