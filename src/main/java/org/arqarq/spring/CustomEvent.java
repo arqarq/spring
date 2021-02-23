@@ -2,8 +2,8 @@ package org.arqarq.spring;
 
 import org.springframework.context.ApplicationEvent;
 
-class CustomEvent<T> extends ApplicationEvent {
-    public CustomEvent(T source) {
+class CustomEvent<T extends CustomEventPublisher> extends ApplicationEvent {
+    CustomEvent(T source) {
         super(source);
     }
 

@@ -4,7 +4,7 @@ import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.ApplicationEventPublisherAware;
 
 class CustomEventPublisher implements ApplicationEventPublisherAware {
-    private final int id = 1;
+    private final int id = 1111;
     private ApplicationEventPublisher publisher;
 
     int getId() {
@@ -15,7 +15,7 @@ class CustomEventPublisher implements ApplicationEventPublisherAware {
         this.publisher = publisher;
     }
 
-    public void publish() {
+    void publish() {
         publisher.publishEvent(new CustomEvent<>(this));
     }
 }
